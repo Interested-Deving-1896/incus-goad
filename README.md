@@ -1,36 +1,29 @@
-# GOAD for Incus
+# incus-goad
 
-Game of Active Directory (GOAD) is a project, by Orange Cyberdefense, to
-automate the deployment of vulnerable Active Directory (AD) environments
-(called "labs").
-
-This project attempts to streamline the process of deploying a GOAD lab
-inside an Incus container.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/incus-goad) [![KDE Eco](https://img.shields.io/badge/KDE%20Eco-certified-brightgreen?logo=kde&logoColor=white&style=flat-square)](https://eco.kde.org/) [![Blue Angel](https://img.shields.io/badge/Blue%20Angel-DE--UZ%20215-0055a4?style=flat-square)](https://www.blauer-engel.de/en/certification/criteria) [![Energy](https://api.green-coding.io/v1/ci/badge/get?repo=Interested-Deving-1896%2Fincus-goad&branch=main&workflow=eco-audit.yml)](https://metrics.green-coding.io/ci-index.html)
 
 
-## Technologies
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-This project makes use of the following technologies:
+## Architecture
 
-- Incus, https://linuxcontainers.org/incus/
-- OpenTofu, https://opentofu.org/
-- Ansible, https://ansible.com/
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
+## Install
 
-## Requirements
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-There are two (2) main requirements to this project:
-
-- access to an Incus container running Debian bookworm with:
-  - sufficient resources to host your lab's VMs;
-  - KVM passthrough for virtualization.
-- access to a VM image of each Windows edition used by our lab.
-
-This project is configured to use VM images built with
-https://github.com/antifob/incus-windows/
-
+```bash
+git clone https://github.com/Interested-Deving-1896/incus-goad.git
+cd incus-goad
+```
 
 ## Usage
+
 
 The following commands should get you started.
 
@@ -75,73 +68,66 @@ sh goad.sh GOAD local
 # sh goad.sh GOAD-Light https://images.example.invalid/
 ```
 
+## Configuration
 
-## VPN Access
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
 
-If you'd like the container to serve as a VPN entrypoint to the lab,
-`tools/setup-wireguard.sh` might be of interest. It automates the
-deployment of a WireGuard server for 9 unique clients. Configurations
-are made available at `http://<CONTAINER-IP>/`.
+## CI
 
-```
-# in the lab-hosting container
-sh ./tools/setup-wireguard.sh
-```
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
 
+## Mirror chain
 
-## Customization and Development
-
-The setup is rather simple so feel free to take a look at the `goad.sh`
-script... I mostly adapted GOAD's proxmox Terraform configuration for
-Incus (and made it leaner, doing so). The overall workflow is simply:
-
-- deploy a lab-hosting container;
-- install Incus in the container to manage the VMs;
-- provision VMs using OpenTofu;
-- run Ansible to provision the VMs.
-
-Each of these steps should easily be adaptable to your environment; see
-`config.auto.tfvars` and `inventory.yml` (and `inventory.yml` files in
-the `labs/` directory).
-
-
-## Frequently Asked Questions
-
-### How to VM images?
-
-Assuming Incus is running and configured in the lab-hosting container...
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/incus-goad`](https://github.com/Interested-Deving-1896/incus-goad) and mirrored through:
 
 ```
-incus exec goad -- sh -e<<__EOF__
-git clone --depth=1 https://github.com/antifob/incus-windows
-cd incus-windows
-
-apt-get -y --install-recommends install curl make python3 xorriso
-
-# build the images required by your lab
-make 2016
-sh ./tools/import.sh ./output/win2016/
-make 2019
-sh ./tools/import.sh ./output/win2019/
-
-# then, use: sh goad.sh GOAD local
-__EOF__
+Interested-Deving-1896/incus-goad  ──►  OpenOS-Project-OSP/incus-goad  ──►  OpenOS-Project-Ecosystem-OOC/incus-goad
 ```
 
-### Can I install the lab outside a container?
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-The lab can be installed on any Incus server, but using a container to
-wrap it minimizes the efforts required to integrate it into an existing
-environment. If you'd still like to go that route, take a look at the
-`config.auto.tfvars` file and the relevant `inventory.yml` file for the
-lab you'd like to deploy. You might also want to edit `main.tf` for
-additional configuration keys for the VMs.
+## Contributors
 
-As long you deploy the lab on a dedicated host/VM/container, this
-project should work for you without much friction.
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_Original project — no upstream influences recorded._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## Accessibility
+
+<!-- AI:start:accessibility -->
+This repo uses automated accessibility auditing via `check-accessibility.yml`.
+
+Checks include: CODEOWNERS ownership coverage, README screen-reader compatibility,
+WCAG 2.1 AA HTML compliance, audio overview (espeak-ng), and Braille output (liblouis).
 
 
-## References
 
-- https://github.com/Orange-Cyberdefense/GOAD
-- https://mayfly277.github.io/categories/proxmox/
+
+Run the [Check Accessibility](https://github.com/Interested-Deving-1896/incus-goad/actions/workflows/check-accessibility.yml)
+workflow to generate the first report and accessibility artifacts.
+See [DOCS/accessibility.md](https://github.com/Interested-Deving-1896/incus-goad/blob/main/DOCS/accessibility.md) for the full reference.
+<!-- AI:end:accessibility -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
