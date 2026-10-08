@@ -96,7 +96,10 @@ Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-
 ## Contributors
 
 <!-- AI:start:contributors -->
-_Contributors pending._
+| Contributor | Commits |
+|---|---|
+| [@antifob](https://github.com/antifob) | 13 |
+| [@Interested-Deving-1896](https://github.com/Interested-Deving-1896) | 2 |
 <!-- AI:end:contributors -->
 
 ## Origins
@@ -124,7 +127,8 @@ WCAG 2.1 AA HTML compliance, audio overview (espeak-ng), and Braille output (lib
 
 Run the [Check Accessibility](https://github.com/Interested-Deving-1896/incus-goad/actions/workflows/check-accessibility.yml)
 workflow to generate the first report and accessibility artifacts.
-See [DOCS/accessibility.md](https://github.com/Interested-Deving-1896/incus-goad/blob/main/DOCS/accessibility.md) for the full reference.
+See the [W3C Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+for the underlying accessibility reference.
 <!-- AI:end:accessibility -->
 
 ## License
