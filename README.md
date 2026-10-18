@@ -98,8 +98,8 @@ Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-
 <!-- AI:start:contributors -->
 | Contributor | Commits |
 |---|---|
+| [@Interested-Deving-1896](https://github.com/Interested-Deving-1896) | 13 |
 | [@antifob](https://github.com/antifob) | 13 |
-| [@Interested-Deving-1896](https://github.com/Interested-Deving-1896) | 12 |
 <!-- AI:end:contributors -->
 
 ## Origins
